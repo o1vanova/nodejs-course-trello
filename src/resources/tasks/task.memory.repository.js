@@ -1,11 +1,23 @@
 const { tasks } = require('../mock');
 
 const getAll = async () => {
-  return tasks;
+  return tasks.get();
 };
 
 const getById = async taskId => {
-  return tasks.find(task => task.id === taskId);
+  return tasks.find(taskId);
 };
 
-module.exports = { getAll, getById };
+const create = async task => {
+  return tasks.create(task);
+};
+
+const update = async task => {
+  return tasks.update(task);
+};
+
+const deleteById = async taskId => {
+  return tasks.delete(taskId);
+};
+
+module.exports = { getAll, getById, create, update, deleteById };

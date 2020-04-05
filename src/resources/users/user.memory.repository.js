@@ -1,11 +1,23 @@
 const { users } = require('../mock');
 
 const getAll = async () => {
-  return users;
+  return users.get();
 };
 
 const getById = async userId => {
-  return users.find(user => user.id === userId);
+  return users.find(userId);
 };
 
-module.exports = { getAll, getById };
+const create = async user => {
+  return users.create(user);
+};
+
+const update = async user => {
+  return users.update(user);
+};
+
+const deleteById = async userId => {
+  return users.delete(userId);
+};
+
+module.exports = { getAll, getById, create, update, deleteById };

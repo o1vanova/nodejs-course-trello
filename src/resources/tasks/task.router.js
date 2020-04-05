@@ -10,8 +10,12 @@ router.route('/').get(async (req, res) => {
 router.route('/:taskId').get(async (req, res) => {
   const id = req.params.taskId;
   const task = await tasksService.getById(id);
-  res.json(task || {});
-  res.status(200);
+  if (task) {
+    res.json(task);
+    res.status(200);
+  } else {
+    res.sendStatus(404);
+  }
 });
 
 module.exports = router;
