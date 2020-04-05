@@ -1,12 +1,11 @@
-const users = [];
+const { users } = require('../mock');
 
 const getAll = async () => {
-  // TODO: mock implementation. should be replaced during task development
   return users;
 };
 
 const getById = async userId => {
-  return users.find(user => user.id === Number(userId));
+  return users.find(user => user.id === userId);
 };
 
 module.exports = { getAll, getById };
